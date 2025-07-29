@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "8.0.2"
 
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 # readmeで指定されているためバージョン指定
 gem "haml-rails", "~> 2.0"
