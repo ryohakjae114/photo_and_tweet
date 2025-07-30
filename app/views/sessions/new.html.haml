@@ -1,10 +1,5 @@
 %h1 ログイン
-= form_with url: session_path do |f|
-  .field
-    = f.label :user_id, 'ユーザID'
-    = f.text_field :user_id, required: true, autofocus: true, value: params[:user_id], maxlength: 20
-  .field
-    = f.label :password, 'パスワード'
-    = f.password_field :password, required: true, maxlength: 72
-  .field
-    = f.submit "ログインする"
+= bootstrap_form_with url: session_path do |f|
+  = f.text_field :user_id, label: 'ユーザID', required: true, autofocus: true, value: params[:user_id], maxlength: 20
+  = f.password_field :password, label: 'パスワード', required: true, maxlength: 72
+  = f.submit "ログインする"
