@@ -35,8 +35,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/dev
+      - name: Check ruby gems
+        run: bundle-audit check --update
+
+      - name: Check JS dependencies
+        run: yarn audit
 
   lint:
     runs-on: ubuntu-latest
