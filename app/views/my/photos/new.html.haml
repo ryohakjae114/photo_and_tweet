@@ -1,8 +1,9 @@
 %h1 写真アップロード
 = form_with model: [:my, @photo] do |f|
+  = render 'shared/form_error', object: @photo
   .field
     = f.label :title, 'タイトル'
-    = f.text_field :title, autofocus: true, value: params[:user_id], maxlength: 30
+    = f.text_field :title, autofocus: true, maxlength: 30
   .field
     = f.label :image, '写真'
     = f.file_field :image, required: true
