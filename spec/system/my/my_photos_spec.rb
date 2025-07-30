@@ -3,17 +3,11 @@ require 'rails_helper'
 RSpec.describe 'My::Photos', type: :system do
   context 'ログイン時' do
     before do
-      create(:user, user_id: 'test_id', password: 'password')
-      visit new_session_path
-      fill_in 'ユーザID', with: 'test_id'
-      fill_in 'パスワード', with: 'password'
-      click_on 'ログインする'
-      expect(page).to have_content 'ログインしました'
+      create_and_login_user(user_id: 'test_id', password: 'password')
     end
 
     after do
-      click_on 'ログアウト'
-      expect(page).to have_content 'ログアウトしました'
+      logout_user
     end
 
     it '写真アップロード画面から写真を投稿できること' do
