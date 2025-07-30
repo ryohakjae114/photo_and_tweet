@@ -1,4 +1,6 @@
 %h1 写真一覧
+
+= link_to '写真アップロード', new_my_photo_path, class: 'btn btn-outline-secondary my-4'
 .row
   - @photos.each do |photo|
     .col-4
