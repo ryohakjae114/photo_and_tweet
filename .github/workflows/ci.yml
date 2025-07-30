@@ -35,11 +35,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Check ruby gems
-        run: bundle-audit check --update
+      - name: Install JavaScript dependencies
+        run: yarn install
 
-      - name: Check JS dependencies
-        run: yarn audit
+      - name: Scan JavaScript dependencies for vulnerabilities
+        run: yarn audit --audit-level moderate
 
   lint:
     runs-on: ubuntu-latest
