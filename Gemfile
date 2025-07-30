@@ -6,15 +6,18 @@ gem 'rails', '8.0.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 # readmeで指定されているためバージョン指定
+gem 'bootstrap_form', '~> 5.4'
+gem 'cssbundling-rails'
+# readmeで指定されているためバージョン指定
 gem 'haml-rails', '~> 2.0'
 # Railsガイドでバージョンが指定されているためバージョン指定
 gem 'image_processing', '>= 1.2'
-gem 'importmap-rails'
 gem 'propshaft'
 # 変更による影響が大きいためバージョン指定
 gem 'pg', '~> 1.1'
 # 変更による影響が大きいためバージョン指定
 gem 'puma', '>= 5.0'
+gem 'jsbundling-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]

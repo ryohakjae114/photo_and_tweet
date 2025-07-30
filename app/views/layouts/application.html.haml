@@ -13,12 +13,12 @@
     %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
     %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
-    = javascript_importmap_tags
   %body
-    - if authenticated?
-      = button_to 'ログアウト', session_path, method: :delete
-    - else
-      = button_to 'ログイン', new_session_path
-    = tag.div(flash[:alert], style: "color:red") if flash[:alert]
-    = tag.div(flash[:notice], style: "color:green") if flash[:notice]
-    = yield
+    .container
+      - if authenticated?
+        = button_to 'ログアウト', session_path, method: :delete
+      - else
+        = button_to 'ログイン', new_session_path
+      = tag.div(flash[:alert], style: "color:red") if flash[:alert]
+      = tag.div(flash[:notice], style: "color:green") if flash[:notice]
+      = yield
