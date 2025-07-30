@@ -12,11 +12,11 @@ gem 'cssbundling-rails'
 gem 'haml-rails', '~> 2.0'
 # Railsガイドでバージョンが指定されているためバージョン指定
 gem 'image_processing', '>= 1.2'
+gem 'jsbundling-rails'
 gem 'propshaft'
 # 変更による影響が大きいためバージョン指定
 gem 'pg', '~> 1.1'
 # 変更による影響が大きいためバージョン指定
-gem 'jsbundling-rails'
 gem 'puma', '>= 5.0'
 gem 'stimulus-rails'
 gem 'turbo-rails'
