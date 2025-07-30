@@ -1,6 +1,6 @@
 %h1 ログイン
 
-= bootstrap_form_with url: session_path do |f|
+= bootstrap_form_with url: session_path, local: true do |f|
   = f.text_field :user_id, label: 'ユーザID', required: true, autofocus: true, value: params[:user_id], maxlength: 20
   = f.password_field :password, label: 'パスワード', required: true, maxlength: 72
   = f.submit "ログインする"
