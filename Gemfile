@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '8.0.2'
 
+# 変更によるリスクが大きいためバージョン指定
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 # readmeで指定されているためバージョン指定
