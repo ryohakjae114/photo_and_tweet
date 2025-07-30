@@ -1,1 +1,6 @@
 %h1 写真一覧
+.row
+  - @photos.each do |photo|
+    .col-4
+      = photo.title
+      .w-75= image_tag photo.image.variant(resize_to_fill: [200, 200])
