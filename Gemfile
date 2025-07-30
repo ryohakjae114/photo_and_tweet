@@ -16,8 +16,8 @@ gem 'propshaft'
 # 変更による影響が大きいためバージョン指定
 gem 'pg', '~> 1.1'
 # 変更による影響が大きいためバージョン指定
-gem 'puma', '>= 5.0'
 gem 'jsbundling-rails'
+gem 'puma', '>= 5.0'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
