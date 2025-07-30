@@ -15,11 +15,11 @@
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
   %body
     .container
+      = tag.div(flash[:alert], style: "color:red") if flash[:alert]
+      = tag.div(flash[:notice], style: "color:green") if flash[:notice]
       .text-end
         - if authenticated?
           = button_to 'ログアウト', session_path, method: :delete, class: 'btn btn-outline-dark'
         - else
           = link_to 'ログイン', new_session_path, class: 'btn btn-outline-dark'
-      = tag.div(flash[:alert], style: "color:red") if flash[:alert]
-      = tag.div(flash[:notice], style: "color:green") if flash[:notice]
       = yield
