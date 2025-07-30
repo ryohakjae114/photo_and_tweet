@@ -36,7 +36,7 @@ jobs:
           bundler-cache: true
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
+        run: bin/dev
 
   lint:
     runs-on: ubuntu-latest
@@ -52,4 +52,3 @@ jobs:
 
       - name: Lint code for consistent style
         run: bin/rubocop -f github
-
