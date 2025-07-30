@@ -3,7 +3,7 @@
   = render 'shared/form_error', object: @photo
   .field
     = f.label :title, 'タイトル'
-    = f.text_field :title, autofocus: true, maxlength: 30
+    = f.text_field :title, required: true, autofocus: true, maxlength: 30
   .field
     = f.label :image, '写真'
     = f.file_field :image, required: true
