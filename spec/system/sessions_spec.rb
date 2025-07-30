@@ -11,7 +11,7 @@ RSpec.describe 'Sessions', type: :system do
 
       fill_in 'ユーザID', with: 'test_id'
       fill_in 'パスワード', with: 'password'
-      click_on 'ログイン'
+      click_on 'ログインする'
 
       expect(page).to have_content 'ログインしました'
       expect(page).to have_current_path root_path
@@ -22,7 +22,7 @@ RSpec.describe 'Sessions', type: :system do
 
       fill_in 'ユーザID', with: 'test_id'
       fill_in 'パスワード', with: '1234512345'
-      click_on 'ログイン'
+      click_on 'ログインする'
 
       expect(page).to have_content 'ログインに失敗しました'
     end
