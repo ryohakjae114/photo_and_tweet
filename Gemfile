@@ -26,6 +26,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "sgcop", github: 'SonicGarden/sgcop', branch: 'main'
   gem "web-console"
 end
 
