@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :system do
-
   context '未ログイン時' do
     before do
       create(:user, user_id: 'test_id', password: 'password')
