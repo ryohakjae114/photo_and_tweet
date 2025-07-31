@@ -9,4 +9,9 @@ class OauthController < ApplicationController
       }
     redirect_to "http://unifa-recruit-my-tweet-app.ap-northeast-1.elasticbeanstalk.com/oauth/authorize?#{URI.encode_www_form(params)}", allow_other_host: true
   end
+
+  def callback
+    session[:my_tweet_app_token] = params[:code]
+    redirect_to root_path, notice: 'MyTweetApp連携しました'
+  end
 end
