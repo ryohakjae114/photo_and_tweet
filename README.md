@@ -1,6 +1,7 @@
+* 合計所要時間: 11時間程度
 # README
 
-1. git clone git@github.com:ryohakjae114/photo_and_tweet.git
+1. `git clone ssh://git@github.com:ryohakjae114/photo_and_tweet.git`
 
 2. Ruby/Node.jsのインストール（asdfを使用した場合）
 ```bash
