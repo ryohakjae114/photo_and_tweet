@@ -20,6 +20,4 @@
       .text-end
         - if authenticated?
           = button_to 'ログアウト', session_path, method: :delete, class: 'btn btn-outline-dark'
-        - else
-          = link_to 'ログイン', new_session_path, class: 'btn btn-outline-dark'
       = yield
