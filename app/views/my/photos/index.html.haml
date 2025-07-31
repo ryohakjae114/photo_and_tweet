@@ -1,1 +1,8 @@
 %h1 写真一覧
+
+= link_to '写真アップロード', new_my_photo_path, class: 'btn btn-outline-secondary my-4'
+.row
+  - @photos.each do |photo|
+    .col-4
+      = photo.title
+      .w-75= image_tag photo.image.variant(resize_to_fill: [200, 200])
