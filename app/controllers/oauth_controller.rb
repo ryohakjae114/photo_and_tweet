@@ -7,7 +7,9 @@ class OauthController < ApplicationController
         client_id: Rails.application.credentials.my_tweet_app[:client_id],
         response_type: 'code',
       }
-    redirect_to "http://unifa-recruit-my-tweet-app.ap-northeast-1.elasticbeanstalk.com/oauth/authorize?#{URI.encode_www_form(request_params)}", allow_other_host: true
+
+    redirect_to "http://unifa-recruit-my-tweet-app.ap-northeast-1.elasticbeanstalk.com/oauth/authorize?#{URI.encode_www_form(request_params)}",
+                allow_other_host: true
   end
 
   def callback
