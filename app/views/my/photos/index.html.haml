@@ -9,3 +9,5 @@
     .col-4
       = photo.title
       .w-75= image_tag photo.image.variant(resize_to_fill: [200, 200])
+      - if session[:access_token].present?
+        = button_to 'ツイートする', my_photo_tweets_path(photo)
