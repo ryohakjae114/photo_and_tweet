@@ -5,7 +5,7 @@
   %div= link_to 'MyTweetAPPと連携', oauth_authorize_path, class: 'btn btn-outline-secondary my-1'
   %div= link_to '写真アップロード', new_my_photo_path, class: 'btn btn-outline-secondary my-1'
 .row
-  - @photos.each do |photo|
+  - @photos.with_attached_image.each do |photo|
     .col-4
       = photo.title
       .w-75= image_tag photo.image.variant(resize_to_fill: [200, 200])
