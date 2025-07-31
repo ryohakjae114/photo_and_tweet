@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :system do
-  before do
-    create(:user, user_id: 'test_id', password: 'password')
-  end
 
   context '未ログイン時' do
+    before do
+      create(:user, user_id: 'test_id', password: 'password')
+    end
+
     it 'ログインできること' do
       visit new_session_path
 
@@ -47,6 +48,21 @@ RSpec.describe 'Sessions', type: :system do
       click_on 'ログインする'
 
       expect(page).to have_content 'ログインに失敗しました'
+    end
+  end
+
+  context 'ログイン時' do
+    before do
+      create_and_login_user(user_id: 'test_id', password: 'password')
+    end
+
+    it 'ログアウトできること' do
+      visit root_path
+      click_button 'ログアウト'
+
+      expect(page).to have_content 'ログアウトしました'
+      expect(page).to have_current_path new_session_path
+      expect(page).not_to have_button 'ログアウト'
     end
   end
 end
