@@ -28,7 +28,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   # 指定しないと開発ビルドを参照するとのことなのでバージョン指定 https://github.com/rspec/rspec-rails?tab=readme-ov-file#installation
   gem 'rspec-rails', '~> 8.0.0'
-  gem 'rubocop-rails-omakase', require: false
 end
 
 group :development do
