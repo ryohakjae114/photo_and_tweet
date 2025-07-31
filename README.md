@@ -20,7 +20,17 @@ rails db:create
 rails db:migrate
 ```
 
-5. master.keyをconfig/に作成
+5. credentialsの作成
+```
+EDITOR="vim" bin/rails credentials:edit
+```
+```
+# client_idとclient_secretは私に送っていただいたメールからご確認ください
+my_tweet_app:
+  client_id: ''
+  client_secret: ''
+  redirect_uri: 'http://localhost:3000/oauth/callback'
+```
 
 6. userの作成
 ```ruby
