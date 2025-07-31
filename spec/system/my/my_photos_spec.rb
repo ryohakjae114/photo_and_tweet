@@ -9,36 +9,43 @@ RSpec.describe 'My::Photos', type: :system do
         login_as_user(user)
       end
 
-      after do
-        logout_user
-      end
-
       it '写真一覧画面作成日の降順で表示されること' do
         create(:photo, user:, title: '写真1', image: file_fixture('hakjae.png'))
         create(:photo, user:, title: '写真2', image: file_fixture('highball.JPG'))
         create(:photo, user:, title: '写真3', image: file_fixture('steak.jpg'))
 
         visit root_path
-        expect(page).to have_content '写真一覧'
-        expect(page).to have_content '写真'
-        within find('.col-6')[0] do
+
+        within first('.col-4') do
           expect(page).to have_content '写真3'
           expect(page).to have_selector("img[src*='steak.jpg']")
         end
-        within find('.col-6')[1] do
+        within all('.col-4')[1] do
           expect(page).to have_content '写真2'
           expect(page).to have_selector("img[src*='highball.JPG']")
         end
-        within find('.col-6')[2] do
+        within all('.col-4')[2] do
           expect(page).to have_content '写真1'
           expect(page).to have_selector("img[src*='hakjae.png']")
         end
       end
 
       it '他の人の写真は表示されないこと' do
+        other_user = create(:user, user_id: 'other_user')
+        create(:photo, user: other_user, title: '他のユーザの写真', image: file_fixture('hakjae.png'))
+
+        visit root_path
+        expect(page).to have_current_path root_path
+
+        expect(page).not_to have_content '他のユーザの写真'
+        expect(page).not_to have_selector("img[src*='hakjae.jpg']")
       end
 
       it '写真アップロード画⾯にアクセスできること' do
+        visit root_path
+        click_on '写真アップロード'
+
+        expect(page).to have_current_path new_my_photo_path
       end
     end
 
@@ -57,14 +64,11 @@ RSpec.describe 'My::Photos', type: :system do
         create_and_login_user(user_id: 'test_id', password: 'password')
       end
 
-      after do
-        logout_user
-      end
-
       it '写真アップロード画面から写真を投稿できること' do
         visit new_my_photo_path
         fill_in 'タイトル', with: '息子のゴールシーン'
         attach_file '写真', file_fixture('hakjae.png')
+
         expect do
           click_on '投稿する'
           expect(page).to have_content '投稿しました'

@@ -2,7 +2,6 @@ module AuthenticationHelpers
   def create_and_login_user(user_id: 'test_id', password: 'password')
     user = create(:user, user_id: user_id, password: password)
     login_as_user(user)
-    user
   end
 
   def login_as_user(user)
@@ -11,10 +10,5 @@ module AuthenticationHelpers
     fill_in 'パスワード', with: user.password
     click_on 'ログインする'
     expect(page).to have_content 'ログインしました'
-  end
-
-  def logout_user
-    click_on 'ログアウト'
-    expect(page).to have_content 'ログアウトしました'
   end
 end
