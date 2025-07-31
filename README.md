@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. git clone git@github.com:ryohakjae114/photo_and_tweet.git
 
-Things you may want to cover:
+2. Ruby/Node.jsのインストール（asdfを使用した場合）
+```bash
+asdf install ruby
+asdf install nodejs
+```
+3. 依存関係のインストール
+```bash
+bundle install
+yarn install
+```
 
-* Ruby version
+4. データベースの設定
+```bash
+cp config/database.yml.sample config/database.yml
+rails db:create
+rails db:migrate
+```
 
-* System dependencies
+5. master.keyをconfig/に作成
 
-* Configuration
+6. userの作成
+```ruby
+FactoryBot.create(:user, user_id: 'sample', password: '1234512345')
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+7. アプリケーションの起動
+```bash
+bin/dev
+```
