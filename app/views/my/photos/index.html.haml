@@ -1,5 +1,5 @@
 %h1 写真一覧
-
+= session[:access_token]
 .my-4
   %div= link_to 'MyTweetAPPと連携', oauth_authorize_path, class: 'btn btn-outline-secondary my-1'
   %div= link_to '写真アップロード', new_my_photo_path, class: 'btn btn-outline-secondary my-1'
