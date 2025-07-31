@@ -75,6 +75,8 @@ RSpec.describe 'My::Photos', type: :system do
         end.to change(Photo, :count).by(1)
 
         expect(page).to have_current_path root_path
+        expect(page).to have_content '息子のゴールシーン'
+        expect(page).not_to have_selector("img[src*='hakjae.jpg']")
       end
 
       it 'タイトルが未入力の場合、投稿できないこと' do
