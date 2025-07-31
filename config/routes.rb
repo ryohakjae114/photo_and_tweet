@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'my/photos#index'
   namespace :my do
-    resources :photos, only: %i[new create]
+    resources :photos, only: %i[new create], module: :photos do
+      resources :tweets, only: %i[create]
+    end
   end
   namespace :oauth do
     get :authorize, to: 'authorize'
